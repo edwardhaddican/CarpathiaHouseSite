@@ -21,8 +21,8 @@ body {
   background-color: #0353a4;
 }
 
-.nav-link-container{
-  display:flex;
+.nav-link-container {
+  display: flex;
   /* justify-content: space-between; */
 }
 
@@ -108,20 +108,26 @@ body {
 }
 
 /* Single Member*/
-.single-member-card{
+.single-member-card {
   background-color: lavender;
   border: solid 1px black;
   border-radius: 2.5%;
   margin: 1rem;
   padding: 1rem;
 }
-.single-member-label{
+.single-member-label {
   font-weight: bold;
 }
 
-.single-member-image{
+.single-member-image {
   width: 250px;
   height: 250px;
   display: block;
   margin: 0 auto;
+}
+
+.calendar {
+  border: 0;
+  width: 800px;
+  height: 600px;
 }
