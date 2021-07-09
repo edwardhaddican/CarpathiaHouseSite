@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { NavBar, AllMembers, LandingPage, Login, Register, Calendar, Home} from "./index";
+import {
+  NavBar,
+  AllMembers,
+  LandingPage,
+  Login,
+  Register,
+  Calendar,
+  Home,
+  NewMemberForm,
+} from "./index";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 const Main = () => {
@@ -14,31 +23,37 @@ const Main = () => {
         <Route
           path="/register"
           render={() => {
-            return <Register />
+            return <Register />;
           }}
         />
         <Route
           path="/login"
           render={() => {
-            return <Login />
+            return <Login />;
           }}
         />
         <Route
           path="/calendar"
           render={() => {
-            return <Calendar />
+            return <Calendar />;
           }}
         />
         <Route
           path="/members"
           render={() => {
-            return <AllMembers/>
+            return <AllMembers />;
+          }}
+        />
+        <Route
+          path="/newmemberform"
+          render={() => {
+            return <NewMemberForm />;
           }}
         />
         <Route
           path="/home"
           render={() => {
-            return <Home />
+            return <Home />;
           }}
         />
         <Redirect to="/home" />

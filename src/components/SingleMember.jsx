@@ -27,11 +27,15 @@ const SingleMember = ({ member }) => {
 
       <p>
         <span className="single-member-label">Singles Fighter:</span>{" "}
-        {member.registeredArms ? <span>Yes</span> : <span>no</span>}{" "}
+        {member.singlesFighter ? <span>Yes</span> : <span>no</span>}{" "}
       </p>
       <p>
         <span className="single-member-label">Melee Fighter: </span>{" "}
         {member.meleeFighter ? <span>Yes</span> : <span>no</span>}{" "}
+      </p>
+      <p>
+        <span className="single-member-label">Combat Archer: </span>{" "}
+        {member.combatArcher ? <span>Yes</span> : <span>no</span>}{" "}
       </p>
 
       {member.authorizedForms.length > 0 ? (
@@ -70,6 +74,8 @@ const SingleMember = ({ member }) => {
         <span className="single-member-label">Rank: </span>
         {member.rank}
       </p>
+
+      <img src={member.arms} alt='the members arms' className="single-member-arms"/>
     </div>
   );
 

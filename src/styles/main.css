@@ -107,6 +107,11 @@ body {
   margin-right: 0.5rem;
 }
 
+/* All Members*/
+.allMembers-main-container{
+  display:flex;
+}
+
 /* Single Member*/
 .single-member-card {
   background-color: lavender;
@@ -114,6 +119,7 @@ body {
   border-radius: 2.5%;
   margin: 1rem;
   padding: 1rem;
+  width: 30%;
 }
 .single-member-label {
   font-weight: bold;
@@ -126,6 +132,18 @@ body {
   margin: 0 auto;
 }
 
+.single-member-arms{
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: .5rem;
+  border-radius: 10%;
+  background-color: black;
+}
+
+/* Calendar*/
 .calendar {
   border: 0;
   width: 800px;

@@ -18,6 +18,11 @@ const NavBar = ({ isAdmin, isSignedIn }) => {
               Members
             </Link>
           ) : null}
+          {isAdmin ? (
+            <Link to={"/newmemberform"} className="nav_item">
+              New Member Form
+            </Link>
+          ) : null}
         </div>
       ) : (
         <div className="nav-link-container">
