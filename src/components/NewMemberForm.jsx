@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import {FileInput} from './'
 
 const NewMemberForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -16,6 +17,8 @@ const NewMemberForm = () => {
   const [memberStatus, setMemberStatus] = useState("");
   const [rank, setRank] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
+  const [photo, setPhoto] = useState("");
+  const [arms, setArms] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -65,7 +68,15 @@ const NewMemberForm = () => {
     { value: "grunt", label: "Grunt" }
   ];
 
-  console.log(isAdmin)
+
+
+  const photoURL = photo ? URL.createObjectURL(photo.selectedFile): ''
+  const armsURL = arms ? URL.createObjectURL(arms.selectedFile) : ''
+
+
+
+
+  // console.log(photo)
   return (
     <div className="new-member-form-main-container">
       <form onSubmit={handleSubmit} className="new-member-form-inner-container">
@@ -258,6 +269,14 @@ const NewMemberForm = () => {
             }}
           />
         </div>
+
+        <FileInput myState={photo} myUseState={setPhoto} title={'Upload the Users Photo here:'}/>
+
+        <img src={photoURL}/>
+
+        <FileInput myState={arms} myUseState={setArms} title={'Upload the Users Coat of Arms here:'}/>
+
+        <img src={armsURL}/>
 
         <input className="submit-button" type="submit" value="Submit" />
       </form>

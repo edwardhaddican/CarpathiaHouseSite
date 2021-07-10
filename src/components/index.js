@@ -9,6 +9,9 @@ export {default as Login} from './Login'
 export {default as Calendar} from './Calendar'
 export {default as Home} from './Home'
 export {default as NewMemberForm} from './NewMemberForm'
+export {default as FileInput} from './FileInput'
+
+
 
 
 

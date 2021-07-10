@@ -162,12 +162,20 @@ body {
 }
 .new-member-form-label{
   margin-right: 1rem;
+  font-weight: bold;
 }
 
 .submit-button{
   width: 55px;
   margin-top: 1rem;
 }
+
+.file-upload-main-container{
+  border: 1px solid black;
+  margin-bottom: 1rem;
+  padding: .5rem;
+}
+
 /* Calendar*/
 .calendar {
   border: 0;
