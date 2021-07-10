@@ -143,6 +143,31 @@ body {
   background-color: black;
 }
 
+/* New Member Form*/
+.new-member-form-main-container{
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+.new-member-form-inner-container{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 1px solid black;
+  background-color: whitesmoke;
+  padding: 2rem;
+}
+.label-container{
+  margin-bottom: .5rem;
+}
+.new-member-form-label{
+  margin-right: 1rem;
+}
+
+.submit-button{
+  width: 55px;
+  margin-top: 1rem;
+}
 /* Calendar*/
 .calendar {
   border: 0;

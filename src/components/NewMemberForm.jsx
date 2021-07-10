@@ -13,9 +13,32 @@ const NewMemberForm = () => {
   const [meleeFighter, setMeleeFighter] = useState(false);
   const [gearStatus, setGearStatus] = useState(false);
   const [authorizedForms, setAuthorizedForms] = useState([]);
+  const [memberStatus, setMemberStatus] = useState("");
+  const [rank, setRank] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    const newUserObject = {
+      mundaneFirstName: firstName,
+      mundaneLastName: lastName,
+      scaFirstName: firstNameSCA,
+      scaLastName: lastNameSCA,
+      registeredName: registeredName,
+      registeredArms: registeredArms,
+      singlesFighter: singlesFighter,
+      combatArcher: combatArcher,
+      meleeFighter: meleeFighter,
+      authorizedForms: authorizedForms,
+      gearStatus: gearStatus,
+      memberStatus: memberStatus,
+      admin: isAdmin,
+      rank: rank,
+      image:
+        "https://www.thesprucepets.com/thmb/_yrib2KGkS4VJSgCQEl59KPUPOU=/1885x1414/smart/filters:no_upscale()/GettyImages-135630198-5ba7d225c9e77c0050cff91b.jpg",
+      arms: "./deviceImages/Lawrence_Vaughan_device.jpg",
+    };
   }
 
   const options = [
@@ -27,12 +50,27 @@ const NewMemberForm = () => {
     { value: "combat-archery", label: "Combat Archery" },
   ];
 
-  console.log(authorizedForms);
+  const memberOptions = [
+    { value: "officer", label: "Officer" },
+    { value: "member", label: "member" },
+    { value: "onwatch", label: "onwatch" },
+  ];
+
+  const rankOptions = [
+    { value: "dreadlord", label: "Dreadlord" },
+    { value: "dreadlady", label: "Dread Lady" },
+    { value: "officer", label: "Officer" },
+    { value: "sergeant", label: "Sergeant" },
+    { value: "quartermaster", label: "Quartermaster" },
+    { value: "grunt", label: "Grunt" }
+  ];
+
+  console.log(isAdmin)
   return (
-    <div className="allMembers-main-container">
-      <form onSubmit={handleSubmit}>
-        <label>
-          First Name (Mundane):
+    <div className="new-member-form-main-container">
+      <form onSubmit={handleSubmit} className="new-member-form-inner-container">
+        <div className="label-container">
+          <label className="new-member-form-label">First Name (Mundane):</label>
           <input
             type="text"
             value={firstName}
@@ -41,9 +79,10 @@ const NewMemberForm = () => {
               console.log(firstName);
             }}
           />
-        </label>
-        <label>
-          Last Name (Mundane):
+        </div>
+
+        <div className="label-container">
+          <label className="new-member-form-label">Last Name (Mundane): </label>
           <input
             type="text"
             value={lastName}
@@ -52,9 +91,10 @@ const NewMemberForm = () => {
               console.log(lastName);
             }}
           />
-        </label>
-        <label>
-          First Name (SCA):
+        </div>
+
+        <div className="label-container">
+          <label className="new-member-form-label">First Name (SCA): </label>
           <input
             type="text"
             value={firstNameSCA}
@@ -63,9 +103,10 @@ const NewMemberForm = () => {
               console.log(firstNameSCA);
             }}
           />
-        </label>
-        <label>
-          Last Name (SCA):
+        </div>
+
+        <div className="label-container">
+          <label className="new-member-form-label">Last Name (SCA): </label>
           <input
             type="text"
             value={lastNameSCA}
@@ -74,10 +115,11 @@ const NewMemberForm = () => {
               console.log(lastNameSCA);
             }}
           />
-        </label>
-
-        <label>
-          Registered Name (Y/N):
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">
+            Registered Name (Y/N):{" "}
+          </label>
           <input
             type="text"
             value={registeredName}
@@ -86,10 +128,11 @@ const NewMemberForm = () => {
               console.log(registeredName);
             }}
           />
-        </label>
-
-        <label>
-          Registered Arms (Y/N):
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">
+            Registered Arms (Y/N):{" "}
+          </label>
           <input
             type="text"
             value={registeredArms}
@@ -98,10 +141,11 @@ const NewMemberForm = () => {
               console.log(registeredArms);
             }}
           />
-        </label>
-
-        <label>
-          Singles Fighter(Y/N):
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">
+            Singles Fighter(Y/N):{" "}
+          </label>
           <input
             type="text"
             value={singlesFighter}
@@ -110,9 +154,9 @@ const NewMemberForm = () => {
               console.log(singlesFighter);
             }}
           />
-        </label>
-        <label>
-          Combat Archer (Y/N):
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">Combat Archer (Y/N): </label>
           <input
             type="text"
             value={combatArcher}
@@ -121,9 +165,9 @@ const NewMemberForm = () => {
               console.log(combatArcher);
             }}
           />
-        </label>
-        <label>
-          Melee Fighter (Y/N):
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">Melee Fighter (Y/N): </label>
           <input
             type="text"
             value={meleeFighter}
@@ -132,13 +176,11 @@ const NewMemberForm = () => {
               console.log(combatArcher);
             }}
           />
-        </label>
-        <label>
-          Authorized Forms:
-          <input type="text" value={false} onChange={(event) => {}} />
-        </label>
-        <label>
-          Is the gear in fighting shape:
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">
+            Is the gear in fighting shape:
+          </label>
           <input
             type="text"
             value={gearStatus}
@@ -146,34 +188,81 @@ const NewMemberForm = () => {
               setGearStatus(event.target.value);
             }}
           />
-        </label>
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">
+            Authorized Weapons Forms:
+          </label>
+          <Select
+            options={options}
+            isMulti
+            onChange={(_, action) => {
+              if (action.action === "select-option") {
+                // console.log(action)
+                setAuthorizedForms([...authorizedForms, action.option.value]);
+              }
 
-        <label>Authorized Weapons Forms:</label>
-        <Select
-          options={options}
-          isMulti
-          onChange={(_, action) => {
-            if (action.action === "select-option") {
-              setAuthorizedForms([...authorizedForms, action.option.value]);
-            }
+              if (action.action === "remove-value") {
+                setAuthorizedForms(
+                  authorizedForms.filter(
+                    (form) => form !== action.removedValue.value
+                  )
+                );
+              }
+            }}
+          />
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">Member Status:</label>
+          <Select
+            options={memberOptions}
+            onChange={(value, action) => {
+              if (action.action === "select-option") {
+                setMemberStatus(value.value);
+              }
 
-            if (action.action === "remove-value") {
-              setAuthorizedForms(
-                authorizedForms.filter(
-                  (form) => form !== action.removedValue.value
-                )
-              );
-            }
-          }}
-        />
+              if (action.action === "remove-value") {
+                setMemberStatus("");
+              }
+            }}
+          />
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">
+            Rank:
+          </label>
+          <Select
+            options={rankOptions}
+            onChange={(value, action) => {
+              if (action.action === "select-option") {
+                setRank(value.value);
+              }
 
+              if (action.action === "remove-value") {
+                setRank(""
 
+                );
+              }
+            }}
+          />
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">
+            Is Admin?:
+          </label>
+          <input
+            type="text"
+            value={isAdmin}
+            onChange={(event) => {
+              setIsAdmin(event.target.value);
+            }}
+          />
+        </div>
 
-
-
-        <input type="submit" value="Submit" />
+        <input className="submit-button" type="submit" value="Submit" />
       </form>
     </div>
+
   );
 };
 
