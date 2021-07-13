@@ -59,57 +59,11 @@ body {
   cursor: pointer;
 }
 
-/* All Movies*/
-.allMovies_Main_Container {
-}
-.movie_search_results_container {
-  border: 1px solid black;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  padding: 0.5rem;
-  background-color: white;
-}
-
-.movie_container {
-  border: 1px solid black;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  padding: 0.5rem;
-  box-shadow: 5px 5px 5px grey;
-}
-
-.movie_item {
-}
-.movie_link {
-  color: black;
-  text-decoration: none;
-}
-
-/* Single Movie*/
-
-.single_movie_container {
-  border: 1px solid black;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  background-color: white;
-}
-
-.single_movie_label {
-  font-weight: bold;
-}
-
-/* Voting*/
-.voting-main-container button {
-  cursor: pointer;
-}
-.thumbs_up {
-  margin-right: 0.5rem;
-}
 
 /* All Members*/
-.allMembers-main-container{
-  display:flex;
+.allMembers-main-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Single Member*/
@@ -119,7 +73,7 @@ body {
   border-radius: 2.5%;
   margin: 1rem;
   padding: 1rem;
-  width: 30%;
+  width: 25%;
 }
 .single-member-label {
   font-weight: bold;
@@ -132,24 +86,24 @@ body {
   margin: 0 auto;
 }
 
-.single-member-arms{
+.single-member-arms {
   width: 150px;
   height: 150px;
   display: block;
   margin: 0 auto;
   border: 1px solid black;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 10%;
   background-color: black;
 }
 
 /* New Member Form*/
-.new-member-form-main-container{
+.new-member-form-main-container {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
 }
-.new-member-form-inner-container{
+.new-member-form-inner-container {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -157,23 +111,34 @@ body {
   background-color: whitesmoke;
   padding: 2rem;
 }
-.label-container{
-  margin-bottom: .5rem;
+.label-container {
+  margin-bottom: 0.5rem;
 }
-.new-member-form-label{
+.name-container {
+  display: flex;
+}
+.name-container input {
+  flex-grow: 1;
+}
+
+.name-container label{
+  width: 170px;
+}
+
+.new-member-form-label {
   margin-right: 1rem;
   font-weight: bold;
 }
 
-.submit-button{
+.submit-button {
   width: 55px;
   margin-top: 1rem;
 }
 
-.file-upload-main-container{
+.file-upload-main-container {
   border: 1px solid black;
   margin-bottom: 1rem;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 /* Calendar*/

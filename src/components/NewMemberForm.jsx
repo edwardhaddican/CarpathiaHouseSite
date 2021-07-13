@@ -82,7 +82,7 @@ const NewMemberForm = () => {
   return (
     <div className="new-member-form-main-container">
       <form onSubmit={handleSubmit} className="new-member-form-inner-container">
-        <div className="label-container">
+        <div className="label-container name-container">
           <label className="new-member-form-label">First Name (Mundane):</label>
           <input
             type="text"
@@ -94,7 +94,7 @@ const NewMemberForm = () => {
           />
         </div>
 
-        <div className="label-container">
+        <div className="label-container name-container">
           <label className="new-member-form-label">Last Name (Mundane): </label>
           <input
             type="text"
@@ -106,7 +106,7 @@ const NewMemberForm = () => {
           />
         </div>
 
-        <div className="label-container">
+        <div className="label-container name-container">
           <label className="new-member-form-label">First Name (SCA): </label>
           <input
             type="text"
@@ -118,7 +118,7 @@ const NewMemberForm = () => {
           />
         </div>
 
-        <div className="label-container">
+        <div className="label-container name-container">
           <label className="new-member-form-label">Last Name (SCA): </label>
           <input
             type="text"
@@ -129,7 +129,7 @@ const NewMemberForm = () => {
             }}
           />
         </div>
-        <div className="label-container">
+        <div className="label-container name-container ">
           <label className="new-member-form-label">
             Registered Name (Y/N):{" "}
           </label>
@@ -144,7 +144,7 @@ const NewMemberForm = () => {
             <option value="false">No</option>
           </select>
         </div>
-        <div className="label-container">
+        <div className="label-container name-container ">
           <label className="new-member-form-label">
             Registered Arms (Y/N):{" "}
           </label>
@@ -159,7 +159,7 @@ const NewMemberForm = () => {
             <option value="false">No</option>
           </select>
         </div>
-        <div className="label-container">
+        <div className="label-container name-container ">
           <label className="new-member-form-label">
             Singles Fighter(Y/N):{" "}
           </label>
@@ -173,7 +173,7 @@ const NewMemberForm = () => {
             <option value="false">No</option>
           </select>
         </div>
-        <div className="label-container">
+        <div className="label-container name-container ">
           <label className="new-member-form-label">Combat Archer (Y/N): </label>
 
           <select
@@ -186,7 +186,7 @@ const NewMemberForm = () => {
             <option value="false">No</option>
           </select>
         </div>
-        <div className="label-container">
+        <div className="label-container name-container ">
           <label className="new-member-form-label">Melee Fighter (Y/N): </label>
           <select
             value={meleeFighter}
@@ -199,9 +199,9 @@ const NewMemberForm = () => {
             <option value="false">No</option>
           </select>
         </div>
-        <div className="label-container">
+        <div className="label-container name-container ">
           <label className="new-member-form-label">
-            Is the gear in fighting shape:
+            Is gear ready?
           </label>
 
           <select
@@ -214,7 +214,7 @@ const NewMemberForm = () => {
             <option value="false">No</option>
           </select>
         </div>
-        <div className="label-container">
+        <div className="label-container name-container ">
           <label className="new-member-form-label">Is Admin?:</label>
           <select
             value={isAdmin}
@@ -231,6 +231,7 @@ const NewMemberForm = () => {
             Authorized Weapons Forms:
           </label>
           <Select
+            className="select-component"
             options={options}
             isMulti
             onChange={(_, action) => {
@@ -252,6 +253,7 @@ const NewMemberForm = () => {
         <div className="label-container">
           <label className="new-member-form-label">Member Status:</label>
           <Select
+            className="select-component"
             options={memberOptions}
             onChange={(value, action) => {
               if (action.action === "select-option") {
@@ -267,6 +269,7 @@ const NewMemberForm = () => {
         <div className="label-container">
           <label className="new-member-form-label">Rank:</label>
           <Select
+            className="select-component"
             options={rankOptions}
             onChange={(value, action) => {
               if (action.action === "select-option") {

@@ -10,6 +10,7 @@ import {
   NewMemberForm,
 } from "./index";
 import { Switch, Route, Redirect } from "react-router-dom";
+import SingleMember from "./SingleMember";
 
 const Main = () => {
   const [isAdmin, setIsAdmin] = useState(true); //change later to false
@@ -44,6 +45,10 @@ const Main = () => {
             return <AllMembers />;
           }}
         />
+        {/* <Route
+          path="/members/:memberId"
+         component={SingleMember}
+        /> */}
         <Route
           path="/newmemberform"
           render={() => {
