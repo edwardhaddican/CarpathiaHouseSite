@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import {FileInput} from './'
+import { FileInput } from "./";
 
 const NewMemberForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -42,6 +42,8 @@ const NewMemberForm = () => {
         "https://www.thesprucepets.com/thmb/_yrib2KGkS4VJSgCQEl59KPUPOU=/1885x1414/smart/filters:no_upscale()/GettyImages-135630198-5ba7d225c9e77c0050cff91b.jpg",
       arms: "./deviceImages/Lawrence_Vaughan_device.jpg",
     };
+
+    console.log(newUserObject);
   }
 
   const options = [
@@ -65,18 +67,18 @@ const NewMemberForm = () => {
     { value: "officer", label: "Officer" },
     { value: "sergeant", label: "Sergeant" },
     { value: "quartermaster", label: "Quartermaster" },
-    { value: "grunt", label: "Grunt" }
+    { value: "grunt", label: "Grunt" },
   ];
 
+  const booleanOptions = [
+    { value: true, label: "Yes" },
+    { value: false, label: "No" },
+  ];
 
+  const photoURL = photo ? URL.createObjectURL(photo.selectedFile) : "";
+  const armsURL = arms ? URL.createObjectURL(arms.selectedFile) : "";
 
-  const photoURL = photo ? URL.createObjectURL(photo.selectedFile): ''
-  const armsURL = arms ? URL.createObjectURL(arms.selectedFile) : ''
-
-
-
-
-  // console.log(photo)
+  // console.log(newUserObject)
   return (
     <div className="new-member-form-main-container">
       <form onSubmit={handleSubmit} className="new-member-form-inner-container">
@@ -131,74 +133,98 @@ const NewMemberForm = () => {
           <label className="new-member-form-label">
             Registered Name (Y/N):{" "}
           </label>
-          <input
-            type="text"
+
+          <select
             value={registeredName}
             onChange={(event) => {
               setRegisteredName(event.target.value);
-              console.log(registeredName);
             }}
-          />
+          >
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
         </div>
         <div className="label-container">
           <label className="new-member-form-label">
             Registered Arms (Y/N):{" "}
           </label>
-          <input
-            type="text"
+
+          <select
             value={registeredArms}
             onChange={(event) => {
               setRegisteredArms(event.target.value);
-              console.log(registeredArms);
             }}
-          />
+          >
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
         </div>
         <div className="label-container">
           <label className="new-member-form-label">
             Singles Fighter(Y/N):{" "}
           </label>
-          <input
-            type="text"
+          <select
             value={singlesFighter}
             onChange={(event) => {
               setSinglesFighter(event.target.value);
-              console.log(singlesFighter);
             }}
-          />
+          >
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
         </div>
         <div className="label-container">
           <label className="new-member-form-label">Combat Archer (Y/N): </label>
-          <input
-            type="text"
+
+          <select
             value={combatArcher}
             onChange={(event) => {
               setCombatArcher(event.target.value);
-              console.log(combatArcher);
             }}
-          />
+          >
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
         </div>
         <div className="label-container">
           <label className="new-member-form-label">Melee Fighter (Y/N): </label>
-          <input
-            type="text"
+          <select
             value={meleeFighter}
             onChange={(event) => {
               setMeleeFighter(event.target.value);
               console.log(combatArcher);
             }}
-          />
+          >
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
         </div>
         <div className="label-container">
           <label className="new-member-form-label">
             Is the gear in fighting shape:
           </label>
-          <input
-            type="text"
+
+          <select
             value={gearStatus}
             onChange={(event) => {
               setGearStatus(event.target.value);
             }}
-          />
+          >
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <div className="label-container">
+          <label className="new-member-form-label">Is Admin?:</label>
+          <select
+            value={isAdmin}
+            onChange={(event) => {
+              setIsAdmin(event.target.value);
+            }}
+          >
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
         </div>
         <div className="label-container">
           <label className="new-member-form-label">
@@ -239,9 +265,7 @@ const NewMemberForm = () => {
           />
         </div>
         <div className="label-container">
-          <label className="new-member-form-label">
-            Rank:
-          </label>
+          <label className="new-member-form-label">Rank:</label>
           <Select
             options={rankOptions}
             onChange={(value, action) => {
@@ -250,38 +274,31 @@ const NewMemberForm = () => {
               }
 
               if (action.action === "remove-value") {
-                setRank(""
-
-                );
+                setRank("");
               }
             }}
           />
         </div>
-        <div className="label-container">
-          <label className="new-member-form-label">
-            Is Admin?:
-          </label>
-          <input
-            type="text"
-            value={isAdmin}
-            onChange={(event) => {
-              setIsAdmin(event.target.value);
-            }}
-          />
-        </div>
 
-        <FileInput myState={photo} myUseState={setPhoto} title={'Upload the Users Photo here:'}/>
+        <FileInput
+          myState={photo}
+          myUseState={setPhoto}
+          title={"Upload the Users Photo here:"}
+        />
 
-        <img src={photoURL}/>
+        <img src={photoURL} />
 
-        <FileInput myState={arms} myUseState={setArms} title={'Upload the Users Coat of Arms here:'}/>
+        <FileInput
+          myState={arms}
+          myUseState={setArms}
+          title={"Upload the Users Coat of Arms here:"}
+        />
 
-        <img src={armsURL}/>
+        <img src={armsURL} />
 
         <input className="submit-button" type="submit" value="Submit" />
       </form>
     </div>
-
   );
 };
 
