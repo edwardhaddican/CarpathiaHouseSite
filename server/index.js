@@ -6,9 +6,16 @@ require('dotenv').config();
 
 
 const mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
+var Factory = require("./module.factory.js");
 
 mongoose.connect('mongodb://localhost/carpathia');
 const db = mongoose.connection;
+
+const factory = new Factory(Schema,mongoose);
+factory.createSchemas();
+factory.insertPeople();
 
 const PORT = process.env.PORT || 8000;
 const app = express();

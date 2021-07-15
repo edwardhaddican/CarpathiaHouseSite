@@ -1,6 +1,8 @@
 import React from "react";
 
-const SingleMember = ({ member }) => {
+const SingleMember = ({ member, match }) => {
+  console.log(match)
+  
   return (
     <div className="single-member-card">
       <img src={member.image} alt='the members portrait' className="single-member-image"/>

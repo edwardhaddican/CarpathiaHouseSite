@@ -20,8 +20,8 @@ const userSeed = [
   {
     mundaneFirstName: "Tyler",
     mundaneLastName: "idk",
-    scaFirstName: "Gui",
-    scaLastName: "idk",
+    scaFirstName: "Guillaume",
+    scaLastName: "Du Chantier",
     registeredName: true,
     registeredArms: true,
     singlesFighter: true,
@@ -56,8 +56,8 @@ const userSeed = [
   {
     mundaneFirstName: "Vic",
     mundaneLastName: "idk",
-    scaFirstName: "Vic",
-    scaLastName: "idk",
+    scaFirstName: "Ezra",
+    scaLastName: "Di Bazzi",
     registeredName: false,
     registeredArms: true,
     singlesFighter: false,
