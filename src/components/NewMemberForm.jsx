@@ -59,6 +59,7 @@ const NewMemberForm = () => {
     { value: "officer", label: "Officer" },
     { value: "member", label: "member" },
     { value: "onwatch", label: "onwatch" },
+    { value: "prospect", label: "prospect" },
   ];
 
   const rankOptions = [
