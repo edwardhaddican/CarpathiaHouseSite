@@ -63,8 +63,8 @@ const NewMemberForm = () => {
   ];
 
   const rankOptions = [
-    { value: "dreadlord", label: "Dreadlord" },
-    { value: "dreadlady", label: "Dread Lady" },
+    { value: "dreadLord", label: "Dreadlord" },
+    { value: "dreadLady", label: "Dread Lady" },
     { value: "officer", label: "Officer" },
     { value: "sergeant", label: "Sergeant" },
     { value: "quartermaster", label: "Quartermaster" },
@@ -135,104 +135,127 @@ const NewMemberForm = () => {
             Registered Name (Y/N):{" "}
           </label>
 
-          <select
-            value={registeredName}
-            onChange={(event) => {
-              setRegisteredName(event.target.value);
+          <Select
+            className="select-component"
+            options={booleanOptions}
+            onChange={(value, action) => {
+              if (action.action === "select-option") {
+                setRegisteredName(value.value);
+              }
+
+              if (action.action === "remove-value") {
+                setRegisteredName("");
+              }
             }}
-          >
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
+          />
         </div>
         <div className="label-container name-container ">
           <label className="new-member-form-label">
             Registered Arms (Y/N):{" "}
           </label>
 
-          <select
-            value={registeredArms}
-            onChange={(event) => {
-              setRegisteredArms(event.target.value);
+          <Select
+            className="select-component"
+            options={booleanOptions}
+            onChange={(value, action) => {
+              if (action.action === "select-option") {
+                setRegisteredArms(value.value);
+              }
+
+              if (action.action === "remove-value") {
+                setRegisteredArms("");
+              }
             }}
-          >
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
+          />
         </div>
         <div className="label-container name-container ">
           <label className="new-member-form-label">
             Singles Fighter(Y/N):{" "}
           </label>
-          <select
-            value={singlesFighter}
-            onChange={(event) => {
-              setSinglesFighter(event.target.value);
+          <Select
+            className="select-component"
+            options={booleanOptions}
+            onChange={(value, action) => {
+              if (action.action === "select-option") {
+                setSinglesFighter(value.value);
+              }
+
+              if (action.action === "remove-value") {
+                setSinglesFighter("");
+              }
             }}
-          >
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
+          />
         </div>
         <div className="label-container name-container ">
           <label className="new-member-form-label">Combat Archer (Y/N): </label>
+          <Select
+            className="select-component"
+            options={booleanOptions}
+            onChange={(value, action) => {
+              if (action.action === "select-option") {
+                setCombatArcher(value.value);
+              }
 
-          <select
-            value={combatArcher}
-            onChange={(event) => {
-              setCombatArcher(event.target.value);
+              if (action.action === "remove-value") {
+                setCombatArcher("");
+              }
             }}
-          >
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
+          />
         </div>
         <div className="label-container name-container ">
           <label className="new-member-form-label">Melee Fighter (Y/N): </label>
-          <select
-            value={meleeFighter}
-            onChange={(event) => {
-              setMeleeFighter(event.target.value);
-              console.log(combatArcher);
+
+          <Select
+            className="select-component"
+            options={booleanOptions}
+            onChange={(value, action) => {
+              if (action.action === "select-option") {
+                setMeleeFighter(value.value);
+              }
+
+              if (action.action === "remove-value") {
+                setMeleeFighter("");
+              }
             }}
-          >
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
+          />
         </div>
         <div className="label-container name-container ">
-          <label className="new-member-form-label">
-            Is gear ready?
-          </label>
+          <label className="new-member-form-label">Is gear ready?</label>
+          <Select
+            className="select-component"
+            options={booleanOptions}
+            onChange={(value, action) => {
+              if (action.action === "select-option") {
+                setGearStatus(value.value);
+              }
 
-          <select
-            value={gearStatus}
-            onChange={(event) => {
-              setGearStatus(event.target.value);
+              if (action.action === "remove-value") {
+                setGearStatus("");
+              }
             }}
-          >
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
+          />
         </div>
         <div className="label-container name-container ">
           <label className="new-member-form-label">Is Admin?:</label>
-          <select
-            value={isAdmin}
-            onChange={(event) => {
-              setIsAdmin(event.target.value);
+          <Select
+            className="select-component"
+            options={booleanOptions}
+            onChange={(value, action) => {
+              if (action.action === "select-option") {
+                setIsAdmin(value.value);
+              }
+
+              if (action.action === "remove-value") {
+                setIsAdmin("");
+              }
             }}
-          >
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
+          />
         </div>
-        <div className="label-container">
+        <div className="label-container ">
           <label className="new-member-form-label">
             Authorized Weapons Forms:
           </label>
           <Select
-            className="select-component"
             options={options}
             isMulti
             onChange={(_, action) => {
@@ -254,7 +277,6 @@ const NewMemberForm = () => {
         <div className="label-container">
           <label className="new-member-form-label">Member Status:</label>
           <Select
-            className="select-component"
             options={memberOptions}
             onChange={(value, action) => {
               if (action.action === "select-option") {
@@ -270,7 +292,6 @@ const NewMemberForm = () => {
         <div className="label-container">
           <label className="new-member-form-label">Rank:</label>
           <Select
-            className="select-component"
             options={rankOptions}
             onChange={(value, action) => {
               if (action.action === "select-option") {

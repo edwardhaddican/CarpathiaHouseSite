@@ -66,6 +66,11 @@ body {
   flex-wrap: wrap;
 }
 
+.dreadLord-container{
+  width: 100%;
+  margin: 0 auto
+}
+
 /* Single Member*/
 .single-member-card {
   background-color: lavender;
@@ -80,9 +85,10 @@ body {
 }
 
 .single-member-image {
-  width: 250px;
-  height: 250px;
+  width: 10rem;
+  height: 10rem;
   display: block;
+  padding: 1rem;
   margin: 0 auto;
 }
 
@@ -91,12 +97,18 @@ body {
   height: 150px;
   display: block;
   margin: 0 auto;
-  border: 1px solid black;
-  padding: 0.5rem;
-  border-radius: 10%;
-  background-color: black;
+  padding: 1rem;
+  /* border-radius: 10%;
+  background-color: black; */
 }
 
+/* single-member-abb-card */
+.single-member-abb-card{
+  background-color: rgb(202, 198, 134);
+  display: flex;
+  margin-bottom: 1rem;
+  border: 2px solid black;
+}
 /* New Member Form*/
 .new-member-form-main-container {
   display: flex;
@@ -128,6 +140,10 @@ body {
 .new-member-form-label {
   margin-right: 1rem;
   font-weight: bold;
+}
+
+.select-component{
+  width: 7rem;
 }
 
 .submit-button {
