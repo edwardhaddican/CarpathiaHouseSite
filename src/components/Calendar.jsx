@@ -7,6 +7,7 @@ const Calendar = () => {
       frameborder="0"
       scrolling="no"
       className="calendar"
+      title='main calendar'
     ></iframe>
   );
 };

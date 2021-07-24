@@ -62,15 +62,21 @@ body {
 
 /* All Members*/
 .allMembers-main-container {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
 }
 
 .dreadLord-container{
-  width: 100%;
-  margin: 0 auto
+  /* width: 100%; */
+  display:flex;
+  justify-content: space-between;
+  /* margin: 0 auto */
 }
-
+.allMembers-inner-container{
+  display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
 /* Single Member*/
 .single-member-card {
   background-color: lavender;
@@ -96,19 +102,28 @@ body {
   width: 150px;
   height: 150px;
   display: block;
-  margin: 0 auto;
-  padding: 1rem;
+  margin: 1rem;
+  /* padding: 1rem; */
   /* border-radius: 10%;
   background-color: black; */
 }
 
+.single-member-data{
+  margin-left: 1rem;
+}
 /* single-member-abb-card */
 .single-member-abb-card{
   background-color: rgb(202, 198, 134);
   display: flex;
   margin-bottom: 1rem;
   border: 2px solid black;
+  width: 49%;
+  /* margin: 0 auto */
 }
+/* .single-member-abb-card-inner-container{
+  display: flex;
+} */
+
 /* New Member Form*/
 .new-member-form-main-container {
   display: flex;

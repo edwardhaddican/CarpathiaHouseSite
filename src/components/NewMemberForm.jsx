@@ -311,7 +311,7 @@ const NewMemberForm = () => {
           title={"Upload the Users Photo here:"}
         />
 
-        <img src={photoURL} />
+        <img src={photoURL} alt='portrait of user'/>
 
         <FileInput
           myState={arms}
@@ -319,7 +319,7 @@ const NewMemberForm = () => {
           title={"Upload the Users Coat of Arms here:"}
         />
 
-        <img src={armsURL} />
+        <img src={armsURL} alt='coat of arms of user'/>
 
         <input className="submit-button" type="submit" value="Submit" />
       </form>
