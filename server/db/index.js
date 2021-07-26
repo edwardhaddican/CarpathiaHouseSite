@@ -1,6 +1,14 @@
-const db = require('./db')
+const mongoose = require('mongoose')
 
-// register models
-require('./models')
+const db = mongoose.connect('mongodb://localhost/carpathia', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-module.exports = db
+const conn = mongoose.connection
+conn.on('error', console.error.bind(console, "MongoDB connection error:"))
+
+
+
+
+

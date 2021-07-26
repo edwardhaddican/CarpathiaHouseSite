@@ -313,4 +313,4 @@ const userSeed = [
   },
 ];
 
-export default userSeed;
+module.exports = userSeed;

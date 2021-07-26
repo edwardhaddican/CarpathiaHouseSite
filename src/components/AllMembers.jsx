@@ -1,29 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { SingleMember, SingleMemberAbb } from "./";
-import userSeed from "../seedData/userSeedData";
+import axios from "axios";
 
 const AllMembers = () => {
-  let dreadLordData;
-  let dreadLadyData;
-  let officers;
-  let grunts;
+  const [dreadLordData, setDreadLordData] = useState(null);
+  const [dreadLadyData, setDreadLadyData] = useState(null);
+  const [officers, setOfficers] = useState([]);
+  const [grunts, setGrunts] = useState([]);
 
-  if (userSeed.length > 0) {
-    dreadLordData = userSeed.filter((user) => user.rank === "Dread Lord")[0];
-    dreadLadyData = userSeed.filter((user) => user.rank === "Dread Lady")[0];
+  async function findAllMembers() {
+    try {
+      const response = await axios.get("/api/members");
+      const allMembers = response.data
+      console.log(allMembers, '!!!!!')
 
-    officers = userSeed.filter((user) => {
-      if (
-        user.memberStatus === "officer" &&
-        user.rank !== "Dread Lord" &&
-        user.rank !== "Dread Lady"
-      ) {
-        return true;
-      }
-    });
+      const dreadLordInfo = allMembers.filter(
+        (user) => user.rank === "Dread Lord"
+      )[0];
+      const dreadLadyInfo = allMembers.filter(
+        (user) => user.rank === "Dread Lady"
+      )[0];
 
-    grunts = userSeed.filter((user) => user.rank === "grunt");
+      const officersInfo = allMembers.filter((user) => {
+        if (
+          user.memberStatus === "officer" &&
+          user.rank !== "Dread Lord" &&
+          user.rank !== "Dread Lady"
+        ) {
+          return true;
+        }
+      });
+
+      const gruntsInfo = allMembers.filter((user) => user.rank === "grunt");
+
+      setDreadLordData(dreadLordInfo)
+      setDreadLadyData(dreadLadyInfo)
+      setOfficers(officersInfo)
+      setGrunts(gruntsInfo)
+
+    } catch (err) {
+      throw err;
+    }
   }
+
+  useEffect(() => {
+    findAllMembers()
+  }, []);
+
+ if(!dreadLordData){
+   return <h1>loading</h1>
+ }
+
+ if(!dreadLadyData){
+  return <h1>loading</h1>
+}
 
   return (
     <div className="allMembers-main-container">

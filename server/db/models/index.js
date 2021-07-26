@@ -1,3 +1,3 @@
-const Movie = require('./Movie')
+const Member = require('./Member')
 
-module.exports = {Movie}
+module.exports = {Member}

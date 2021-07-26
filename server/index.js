@@ -1,21 +1,13 @@
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
-const db = require("./db");
+require("./db");
 require('dotenv').config();
 
 
 const mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var ObjectId = Schema.ObjectId;
-var Factory = require("./module.factory.js");
 
-mongoose.connect('mongodb://localhost/carpathia');
-const db = mongoose.connection;
 
-const factory = new Factory(Schema,mongoose);
-factory.createSchemas();
-factory.insertPeople();
 
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -60,8 +52,6 @@ const createApp = () => {
   });
 };
 
-const syncDb = () => db.sync();
-
 const startListening = () => {
   // start listening
   app.listen(PORT, () =>
@@ -70,7 +60,6 @@ const startListening = () => {
 };
 
 async function bootApp() {
-  await syncDb();
   createApp();
   startListening();
 }
