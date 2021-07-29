@@ -1,51 +1,97 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const SingleMember = ({ member, match }) => {
-  console.log(match)
-  
+  const [singleMemberData, setSingleMemberData] = useState(null);
+  const [currentId, setCurrentId] = useState(null);
+
+  async function findSingleMember() {
+    try {
+      const id = match.params.memberId;
+      setCurrentId(match.params.memberId);
+
+      const response = await axios.get(`/api/members/${id}`);
+      const data = response.data;
+      console.log(data, "!!!!");
+      setSingleMemberData(data);
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  useEffect(() => {
+    findSingleMember();
+  }, []);
+
   return (
     <div className="single-member-card">
-      <img src={member.image} alt='the members portrait' className="single-member-image"/>
-      <p>
-        <span className="single-member-label"> Mundane Name: </span>
-        {member.mundaneLastName}, {member.mundaneFirstName}{" "}
-      </p>
-      <p>
-        <span className="single-member-label"> SCA Name: </span>
-        {member.scaLastName}, {member.scaFirstName}{" "}
-      </p>
-      <p>
-        <span className="single-member-label">
-          Is this member's name registered?:
-        </span>{" "}
-        {member.registeredName ? <span>Yes</span> : <span>no</span>}{" "}
-      </p>
-      <p>
-        <span className="single-member-label">
-          Is this member's arms registered?:
-        </span>{" "}
-        {member.registeredArms ? <span>Yes</span> : <span>no</span>}{" "}
-      </p>
+      {singleMemberData ? (
+        <img
+          src={singleMemberData.image}
+          alt="the members portrait"
+          className="single-member-image"
+        />
+      ) : null}
 
-      <p>
-        <span className="single-member-label">Singles Fighter:</span>{" "}
-        {member.singlesFighter ? <span>Yes</span> : <span>no</span>}{" "}
-      </p>
-      <p>
-        <span className="single-member-label">Melee Fighter: </span>{" "}
-        {member.meleeFighter ? <span>Yes</span> : <span>no</span>}{" "}
-      </p>
-      <p>
-        <span className="single-member-label">Combat Archer: </span>{" "}
-        {member.combatArcher ? <span>Yes</span> : <span>no</span>}{" "}
-      </p>
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label"> Mundane Name: </span>
+          {singleMemberData.mundaneLastName}, {singleMemberData.mundaneFirstName}{" "}
+        </p>
+      ) : null}
 
-      {member.authorizedForms.length > 0 ? (
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label"> SCA Name: </span>
+          {singleMemberData.scaLastName}, {singleMemberData.scaFirstName}{" "}
+        </p>
+      ) : null}
+
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label">
+            Is this member's name registered?:
+          </span>{" "}
+          {singleMemberData.registeredName ? <span>Yes</span> : <span>no</span>}{" "}
+        </p>
+      ) : null}
+
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label">
+            Is this member's arms registered?:
+          </span>{" "}
+          {singleMemberData.registeredArms ? <span>Yes</span> : <span>no</span>}{" "}
+        </p>
+      ) : null}
+
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label">Singles Fighter:</span>{" "}
+          {singleMemberData.singlesFighter ? <span>Yes</span> : <span>no</span>}{" "}
+        </p>
+      ) : null}
+
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label">Melee Fighter: </span>{" "}
+          {singleMemberData.meleeFighter ? <span>Yes</span> : <span>no</span>}{" "}
+        </p>
+      ) : null}
+
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label">Combat Archer: </span>{" "}
+          {singleMemberData.combatArcher ? <span>Yes</span> : <span>no</span>}{" "}
+        </p>
+      ) : null}
+
+      {singleMemberData && singleMemberData.authorizedForms.length > 0 ? (
         <p>
           <span className="single-member-label">
             Authorized Weapons Forms:{" "}
           </span>{" "}
-          {member.authorizedForms.join(", ")}
+          {singleMemberData.authorizedForms.join(", ")}
         </p>
       ) : (
         <p>
@@ -56,36 +102,45 @@ const SingleMember = ({ member, match }) => {
         </p>
       )}
 
-      <p>
-        <span className="single-member-label">
-          Is Gear ready for fighting:{" "}
-        </span>{" "}
-        {member.gearStatus ? <span>Yes</span> : <span>no</span>}{" "}
-      </p>
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label">
+            Is Gear ready for fighting:{" "}
+          </span>{" "}
+          {singleMemberData.gearStatus ? <span>Yes</span> : <span>no</span>}{" "}
+        </p>
+      ) : null}
 
-      <p>
-        <span className="single-member-label">Member:</span>{" "}
-        {member.memberStatus}
-      </p>
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label">Member:</span>{" "}
+          {singleMemberData.memberStatus}
+        </p>
+      ) : null}
 
-      <p>
-        <span className="single-member-label">Is Admin: </span>{" "}
-        {member.admin ? <span>Yes</span> : <span>no</span>}{" "}
-      </p>
-      <p>
-        <span className="single-member-label">Rank: </span>
-        {member.rank}
-      </p>
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label">Is Admin: </span>{" "}
+          {singleMemberData.admin ? <span>Yes</span> : <span>no</span>}{" "}
+        </p>
+      ) : null}
 
-      <img src={member.arms} alt='the members arms' className="single-member-arms"/>
+      {singleMemberData ? (
+        <p>
+          <span className="single-member-label">Rank: </span>
+          {singleMemberData.rank}
+        </p>
+      ) : null}
+
+      {singleMemberData ? (
+        <img
+          src={singleMemberData.arms}
+          alt="the members arms"
+          className="single-member-arms"
+        />
+      ) : null}
     </div>
   );
-
-  //   authorizedForms: ["sword & shield", "spear"],
-  //   gearStatus: true,
-  //   memberStatus: "Officer",
-  //   admin: true,
-  //   rank: "Dread Lord",
 };
 
 export default SingleMember;

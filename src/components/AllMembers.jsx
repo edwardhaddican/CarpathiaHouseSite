@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { SingleMember, SingleMemberAbb } from "./";
 import axios from "axios";
 
@@ -11,8 +12,8 @@ const AllMembers = () => {
   async function findAllMembers() {
     try {
       const response = await axios.get("/api/members");
-      const allMembers = response.data
-      console.log(allMembers, '!!!!!')
+      const allMembers = response.data;
+      console.log(allMembers, "!!!!!");
 
       const dreadLordInfo = allMembers.filter(
         (user) => user.rank === "Dread Lord"
@@ -33,48 +34,55 @@ const AllMembers = () => {
 
       const gruntsInfo = allMembers.filter((user) => user.rank === "grunt");
 
-      setDreadLordData(dreadLordInfo)
-      setDreadLadyData(dreadLadyInfo)
-      setOfficers(officersInfo)
-      setGrunts(gruntsInfo)
-
+      setDreadLordData(dreadLordInfo);
+      setDreadLadyData(dreadLadyInfo);
+      setOfficers(officersInfo);
+      setGrunts(gruntsInfo);
     } catch (err) {
       throw err;
     }
   }
 
   useEffect(() => {
-    findAllMembers()
+    findAllMembers();
   }, []);
 
- if(!dreadLordData){
-   return <h1>loading</h1>
- }
+  if (!dreadLordData) {
+    return <h1>loading</h1>;
+  }
 
- if(!dreadLadyData){
-  return <h1>loading</h1>
-}
+  if (!dreadLadyData) {
+    return <h1>loading</h1>;
+  }
 
   return (
     <div className="allMembers-main-container">
       <h1>Dread Lord and Lady</h1>
       <div className="dreadLord-container">
-        {/* <h1>Dread Lord:</h1> */}
-        <SingleMemberAbb
-          member={dreadLordData}
-          key={dreadLordData.scaFirstName}
-        />
-        <SingleMemberAbb
-          member={dreadLadyData}
-          key={dreadLadyData.scaFirstName}
-        />
+        <Link
+          className="link-to-single-member"
+          to={`/members/${dreadLordData._id}`}
+        >
+          <SingleMemberAbb member={dreadLordData} />
+        </Link>
+        <Link
+          className="link-to-single-member"
+          to={`/members/${dreadLadyData._id}`}
+        >
+          <SingleMemberAbb member={dreadLadyData} />
+        </Link>
       </div>
       <h1>Officers:</h1>
       <div className="allMembers-inner-container">
         {officers.length > 0
           ? officers.map((member) => {
               return (
-                <SingleMemberAbb member={member} key={member.scaFirstName} />
+                <Link
+                  className="link-to-single-member"
+                  to={`/members/${member._id}`}
+                >
+                  <SingleMemberAbb member={member} key={member.scaFirstName} />
+                </Link>
               );
             })
           : null}
@@ -85,7 +93,12 @@ const AllMembers = () => {
         {grunts.length > 0
           ? grunts.map((member) => {
               return (
-                <SingleMemberAbb member={member} key={member.scaFirstName} />
+                <Link
+                  className="link-to-single-member"
+                  to={`/members/${member._id}`}
+                >
+                  <SingleMemberAbb member={member} key={member.scaFirstName} />
+                </Link>
               );
             })
           : null}

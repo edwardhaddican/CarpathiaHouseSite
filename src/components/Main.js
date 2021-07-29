@@ -39,16 +39,17 @@ const Main = () => {
             return <Calendar />;
           }}
         />
+
+        <Route
+          path="/members/:memberId"
+         component={SingleMember}
+        />
         <Route
           path="/members"
           render={() => {
             return <AllMembers />;
           }}
         />
-        {/* <Route
-          path="/members/:memberId"
-         component={SingleMember}
-        /> */}
         <Route
           path="/newmemberform"
           render={() => {
