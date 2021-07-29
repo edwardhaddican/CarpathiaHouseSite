@@ -1,22 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { FileInput } from "./";
 
-const NewMemberForm = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [firstNameSCA, setFirstNameSCA] = useState("");
-  const [lastNameSCA, setLastNameSCA] = useState("");
-  const [registeredName, setRegisteredName] = useState(false);
-  const [registeredArms, setRegisteredArms] = useState(false);
-  const [singlesFighter, setSinglesFighter] = useState(false);
-  const [combatArcher, setCombatArcher] = useState(false);
-  const [meleeFighter, setMeleeFighter] = useState(false);
-  const [gearStatus, setGearStatus] = useState(false);
-  const [authorizedForms, setAuthorizedForms] = useState([]);
-  const [memberStatus, setMemberStatus] = useState("");
-  const [rank, setRank] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
+const NewMemberForm = ({ singleMemberData }) => {
+  console.log(singleMemberData);
+  const [firstName, setFirstName] = useState(
+    singleMemberData ? singleMemberData.mundaneFirstName : ""
+  );
+  const [lastName, setLastName] = useState(
+    singleMemberData ? singleMemberData.mundaneLastName : ""
+  );
+  const [firstNameSCA, setFirstNameSCA] = useState(
+    singleMemberData ? singleMemberData.scaFirstName : ""
+  );
+  const [lastNameSCA, setLastNameSCA] = useState(
+    singleMemberData ? singleMemberData.scaLastName : ""
+  );
+  const [registeredName, setRegisteredName] = useState(
+    singleMemberData ? singleMemberData.registeredName : false
+  );
+  const [registeredArms, setRegisteredArms] = useState(
+    singleMemberData ? singleMemberData.registeredArms : false
+  );
+  const [singlesFighter, setSinglesFighter] = useState(
+    singleMemberData ? singleMemberData.singlesFighter : false
+  );
+  const [combatArcher, setCombatArcher] = useState(
+    singleMemberData ? singleMemberData.combatArcher : false
+  );
+  const [meleeFighter, setMeleeFighter] = useState(
+    singleMemberData ? singleMemberData.meleeFighter : false
+  );
+  const [gearStatus, setGearStatus] = useState(
+    singleMemberData ? singleMemberData.gearStatus : false
+  );
+  const [authorizedForms, setAuthorizedForms] = useState(
+    singleMemberData ? singleMemberData.authorizedForms : []
+  );
+  const [memberStatus, setMemberStatus] = useState(
+    singleMemberData ? singleMemberData.memberStatus : ""
+  );
+  const [rank, setRank] = useState(
+    singleMemberData ? singleMemberData.rank : ""
+  );
+  const [isAdmin, setIsAdmin] = useState(
+    singleMemberData ? singleMemberData.isAdmin : false
+  );
   const [photo, setPhoto] = useState("");
   const [arms, setArms] = useState("");
 
@@ -83,6 +112,24 @@ const NewMemberForm = () => {
   return (
     <div className="new-member-form-main-container">
       <form onSubmit={handleSubmit} className="new-member-form-inner-container">
+        <div className="new-member-form-image-container">
+          {singleMemberData && singleMemberData.image ? (
+            <img
+              src={singleMemberData.image}
+              alt="the members portrait"
+              className="single-member-image"
+            />
+          ) : null}
+
+          {singleMemberData && singleMemberData.arms ? (
+            <img
+              src={singleMemberData.arms}
+              alt="the members arms"
+              className="single-member-image"
+            />
+          ) : null}
+        </div>
+
         <div className="label-container name-container">
           <label className="new-member-form-label">First Name (Mundane):</label>
           <input
@@ -311,7 +358,7 @@ const NewMemberForm = () => {
           title={"Upload the Users Photo here:"}
         />
 
-        <img src={photoURL} alt='portrait of user'/>
+        <img src={photoURL} alt="portrait of user" />
 
         <FileInput
           myState={arms}
@@ -319,7 +366,7 @@ const NewMemberForm = () => {
           title={"Upload the Users Coat of Arms here:"}
         />
 
-        <img src={armsURL} alt='coat of arms of user'/>
+        <img src={armsURL} alt="coat of arms of user" />
 
         <input className="submit-button" type="submit" value="Submit" />
       </form>

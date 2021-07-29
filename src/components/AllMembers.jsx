@@ -97,7 +97,7 @@ const AllMembers = () => {
                   className="link-to-single-member"
                   to={`/members/${member._id}`}
                 >
-                  <SingleMemberAbb member={member} key={member.scaFirstName} />
+                  <SingleMemberAbb member={member} key={`${member.scaLastName}: ${member.scaFirstName}`} />
                 </Link>
               );
             })

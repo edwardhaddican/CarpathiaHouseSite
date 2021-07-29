@@ -152,6 +152,11 @@ body {
   background-color: whitesmoke;
   padding: 2rem;
 }
+
+.new-member-form-image-container{
+  display: flex;
+  margin-bottom: 1rem;
+}
 .label-container {
   margin-bottom: 0.5rem;
 }

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   NavBar,
   AllMembers,
-  LandingPage,
   Login,
   Register,
   Calendar,
