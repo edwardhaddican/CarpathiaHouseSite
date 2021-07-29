@@ -78,6 +78,9 @@ body {
   padding: 1rem;
   width: 50%;
 }
+.single-member-card-inner-container{
+  margin-left: 2rem;
+}
 .single-member-label {
   font-weight: bold;
   margin-bottom: .25rem;
