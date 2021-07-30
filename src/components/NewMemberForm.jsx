@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { FileInput } from "./";
 
-const NewMemberForm = ({ singleMemberData }) => {
-  console.log(singleMemberData);
+const NewMemberForm = ({ singleMemberData, setIsEdit }) => {
   const [firstName, setFirstName] = useState(
     singleMemberData ? singleMemberData.mundaneFirstName : ""
   );
@@ -44,10 +43,15 @@ const NewMemberForm = ({ singleMemberData }) => {
     singleMemberData ? singleMemberData.rank : ""
   );
   const [isAdmin, setIsAdmin] = useState(
-    singleMemberData ? singleMemberData.isAdmin : false
+    singleMemberData ? singleMemberData.admin : false
   );
+
   const [photo, setPhoto] = useState("");
   const [arms, setArms] = useState("");
+
+  const [notes, setNotes] = useState(
+    singleMemberData ? singleMemberData.notes : ""
+  );
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -70,6 +74,7 @@ const NewMemberForm = ({ singleMemberData }) => {
       image:
         "https://www.thesprucepets.com/thmb/_yrib2KGkS4VJSgCQEl59KPUPOU=/1885x1414/smart/filters:no_upscale()/GettyImages-135630198-5ba7d225c9e77c0050cff91b.jpg",
       arms: "./deviceImages/Lawrence_Vaughan_device.jpg",
+      notes: notes,
     };
 
     console.log(newUserObject);
@@ -86,17 +91,17 @@ const NewMemberForm = ({ singleMemberData }) => {
 
   const memberOptions = [
     { value: "officer", label: "Officer" },
-    { value: "member", label: "member" },
-    { value: "onwatch", label: "onwatch" },
-    { value: "prospect", label: "prospect" },
+    { value: "member", label: "Member" },
+    { value: "onwatch", label: "Onwatch" },
+    { value: "prospect", label: "Prospect" },
   ];
 
   const rankOptions = [
-    { value: "dreadLord", label: "Dreadlord" },
-    { value: "dreadLady", label: "Dread Lady" },
-    { value: "officer", label: "Officer" },
-    { value: "sergeant", label: "Sergeant" },
-    { value: "quartermaster", label: "Quartermaster" },
+    { value: "Dread Lord", label: "Dread Lord" },
+    { value: "Dread Lady", label: "Dread Lady" },
+    { value: "Officer", label: "Officer" },
+    { value: "Sergeant", label: "Sergeant" },
+    { value: "Quartermaster", label: "Quartermaster" },
     { value: "grunt", label: "Grunt" },
   ];
 
@@ -108,7 +113,7 @@ const NewMemberForm = ({ singleMemberData }) => {
   const photoURL = photo ? URL.createObjectURL(photo.selectedFile) : "";
   const armsURL = arms ? URL.createObjectURL(arms.selectedFile) : "";
 
-  // console.log(newUserObject)
+
   return (
     <div className="new-member-form-main-container">
       <form onSubmit={handleSubmit} className="new-member-form-inner-container">
@@ -185,6 +190,9 @@ const NewMemberForm = ({ singleMemberData }) => {
           <Select
             className="select-component"
             options={booleanOptions}
+            defaultValue={
+              booleanOptions.find((option) => option.value === registeredName) || null
+            }
             onChange={(value, action) => {
               if (action.action === "select-option") {
                 setRegisteredName(value.value);
@@ -204,6 +212,9 @@ const NewMemberForm = ({ singleMemberData }) => {
           <Select
             className="select-component"
             options={booleanOptions}
+            defaultValue={
+              booleanOptions.find((option) => option.value === registeredArms) || null
+            }
             onChange={(value, action) => {
               if (action.action === "select-option") {
                 setRegisteredArms(value.value);
@@ -222,6 +233,9 @@ const NewMemberForm = ({ singleMemberData }) => {
           <Select
             className="select-component"
             options={booleanOptions}
+            defaultValue={
+              booleanOptions.find((option) => option.value === singlesFighter) || null
+            }
             onChange={(value, action) => {
               if (action.action === "select-option") {
                 setSinglesFighter(value.value);
@@ -238,6 +252,9 @@ const NewMemberForm = ({ singleMemberData }) => {
           <Select
             className="select-component"
             options={booleanOptions}
+            defaultValue={
+              booleanOptions.find((option) => option.value === combatArcher) || null
+            }
             onChange={(value, action) => {
               if (action.action === "select-option") {
                 setCombatArcher(value.value);
@@ -255,6 +272,9 @@ const NewMemberForm = ({ singleMemberData }) => {
           <Select
             className="select-component"
             options={booleanOptions}
+            defaultValue={
+              booleanOptions.find((option) => option.value === meleeFighter) || null
+            }
             onChange={(value, action) => {
               if (action.action === "select-option") {
                 setMeleeFighter(value.value);
@@ -267,10 +287,13 @@ const NewMemberForm = ({ singleMemberData }) => {
           />
         </div>
         <div className="label-container name-container ">
-          <label className="new-member-form-label">Is gear ready?</label>
+          <label className="new-member-form-label">Is gear ready?:</label>
           <Select
             className="select-component"
             options={booleanOptions}
+            defaultValue={
+              booleanOptions.find((option) => option.value === gearStatus) || null
+            }
             onChange={(value, action) => {
               if (action.action === "select-option") {
                 setGearStatus(value.value);
@@ -287,6 +310,9 @@ const NewMemberForm = ({ singleMemberData }) => {
           <Select
             className="select-component"
             options={booleanOptions}
+            defaultValue={
+              booleanOptions.find((option) => option.value === isAdmin) || null
+            }
             onChange={(value, action) => {
               if (action.action === "select-option") {
                 setIsAdmin(value.value);
@@ -298,16 +324,20 @@ const NewMemberForm = ({ singleMemberData }) => {
             }}
           />
         </div>
+
+
         <div className="label-container ">
           <label className="new-member-form-label">
             Authorized Weapons Forms:
           </label>
           <Select
             options={options}
+            defaultValue={
+              options.filter((option) => authorizedForms.includes(option.value)) || []
+            }
             isMulti
             onChange={(_, action) => {
               if (action.action === "select-option") {
-                // console.log(action)
                 setAuthorizedForms([...authorizedForms, action.option.value]);
               }
 
@@ -325,6 +355,9 @@ const NewMemberForm = ({ singleMemberData }) => {
           <label className="new-member-form-label">Member Status:</label>
           <Select
             options={memberOptions}
+            defaultValue={
+              memberOptions.find((option) => option.value === memberStatus) || null
+            }
             onChange={(value, action) => {
               if (action.action === "select-option") {
                 setMemberStatus(value.value);
@@ -340,6 +373,9 @@ const NewMemberForm = ({ singleMemberData }) => {
           <label className="new-member-form-label">Rank:</label>
           <Select
             options={rankOptions}
+            defaultValue={
+              rankOptions.find((option) => option.value === rank) || null
+            }
             onChange={(value, action) => {
               if (action.action === "select-option") {
                 setRank(value.value);
@@ -367,8 +403,19 @@ const NewMemberForm = ({ singleMemberData }) => {
         />
 
         <img src={armsURL} alt="coat of arms of user" />
-
-        <input className="submit-button" type="submit" value="Submit" />
+        <div className="form-button-container">
+          <input className="submit-button" type="submit" value="Submit" />
+          {singleMemberData ? (
+            <button
+              className="cancel-button"
+              onClick={() => {
+                setIsEdit(false);
+              }}
+            >
+              Cancel
+            </button>
+          ) : null}
+        </div>
       </form>
     </div>
   );

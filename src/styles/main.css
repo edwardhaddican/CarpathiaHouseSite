@@ -180,7 +180,17 @@ body {
   width: 7rem;
 }
 
+.form-button-container{
+  display: flex;
+  justify-content: space-between;
+}
+
 .submit-button {
+  width: 55px;
+  margin-top: 1rem;
+}
+
+.cancel-button{
   width: 55px;
   margin-top: 1rem;
 }

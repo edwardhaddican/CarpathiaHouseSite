@@ -19,6 +19,7 @@ const MemberSchema = new Schema({
   rank: String,
   image: String,
   arms: String,
+  notes: String,
 });
 
 const MemberModel = mongoose.model('Member', MemberSchema)

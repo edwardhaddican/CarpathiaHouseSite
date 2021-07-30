@@ -13,7 +13,6 @@ const AllMembers = () => {
     try {
       const response = await axios.get("/api/members");
       const allMembers = response.data;
-      console.log(allMembers, "!!!!!");
 
       const dreadLordInfo = allMembers.filter(
         (user) => user.rank === "Dread Lord"
@@ -78,10 +77,11 @@ const AllMembers = () => {
           ? officers.map((member) => {
               return (
                 <Link
+                  key={member.scaFirstName}
                   className="link-to-single-member"
                   to={`/members/${member._id}`}
                 >
-                  <SingleMemberAbb member={member} key={member.scaFirstName} />
+                  <SingleMemberAbb member={member} />
                 </Link>
               );
             })
@@ -94,10 +94,11 @@ const AllMembers = () => {
           ? grunts.map((member) => {
               return (
                 <Link
+                  key={`${member.scaLastName}: ${member.scaFirstName}`}
                   className="link-to-single-member"
                   to={`/members/${member._id}`}
                 >
-                  <SingleMemberAbb member={member} key={`${member.scaLastName}: ${member.scaFirstName}`} />
+                  <SingleMemberAbb member={member} />
                 </Link>
               );
             })

@@ -5,7 +5,7 @@ import { NewMemberForm } from "./index";
 const SingleMember = ({ member, match }) => {
   const [singleMemberData, setSingleMemberData] = useState(null);
   const [currentId, setCurrentId] = useState(null);
-  const [isEdit, setIsEdit] = useState(true);
+  const [isEdit, setIsEdit] = useState(false);
 
   async function findSingleMember() {
     try {
@@ -26,10 +26,12 @@ const SingleMember = ({ member, match }) => {
 
   function editClickHandler() {
     console.log("i am edit");
+    setIsEdit(true)
   }
 
   function saveClickHandler() {
     console.log("i am save");
+    setIsEdit(false)
   }
 
   if(!singleMemberData){
@@ -38,7 +40,7 @@ const SingleMember = ({ member, match }) => {
 
   return (
     <>
-      {isEdit ? <NewMemberForm  singleMemberData={singleMemberData} /> : (
+      {isEdit ? <NewMemberForm  singleMemberData={singleMemberData}   isEdit={isEdit} setIsEdit={setIsEdit}/> : (
         <div className="single-member-card">
           {singleMemberData ? (
             <img
