@@ -19,6 +19,12 @@ const MemberSchema = new Schema({
   rank: String,
   image: String,
   arms: String,
+  title: String,
+  phoneNumber: String,
+  email: String,
+  address: String,
+  memberId: String,
+  authExpirationDate: String,
   notes: String,
 });
 

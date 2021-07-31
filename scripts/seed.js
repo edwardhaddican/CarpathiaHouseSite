@@ -1,6 +1,6 @@
 require("../server/db");
 const { Member } = require("../server/db/models");
-const userSeed = require("../src/seedData/userSeedData");
+const userSeed = require("./userSeedData");
 
 Member.deleteMany({}, (err) => {
   if (err) {
@@ -16,4 +16,5 @@ Member.deleteMany({}, (err) => {
       });
     });
   }
+  console.log(`${userSeed.length} Members created.`)
 });

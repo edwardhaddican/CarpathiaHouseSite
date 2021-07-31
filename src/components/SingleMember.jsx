@@ -37,7 +37,7 @@ const SingleMember = ({ member, match }) => {
   if(!singleMemberData){
     return <h1>loading</h1>
   }
-
+console.log(singleMemberData, 'data')
   return (
     <>
       {isEdit ? <NewMemberForm  singleMemberData={singleMemberData}   isEdit={isEdit} setIsEdit={setIsEdit}/> : (
@@ -177,7 +177,7 @@ const SingleMember = ({ member, match }) => {
           </div>
           {singleMemberData ? (
             <img
-              src={singleMemberData.arms}
+              src={`${singleMemberData.arms}`}
               alt="the members arms"
               className="single-member-image"
             />

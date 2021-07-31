@@ -100,9 +100,12 @@ const NewMemberForm = ({ singleMemberData, setIsEdit }) => {
     { value: "Dread Lord", label: "Dread Lord" },
     { value: "Dread Lady", label: "Dread Lady" },
     { value: "Officer", label: "Officer" },
+    { value: "seneschal", label: "Seneschal" },
     { value: "Sergeant", label: "Sergeant" },
-    { value: "Quartermaster", label: "Quartermaster" },
+    { value: "quartermaster", label: "Quartermaster" },
     { value: "grunt", label: "Grunt" },
+
+
   ];
 
   const booleanOptions = [
