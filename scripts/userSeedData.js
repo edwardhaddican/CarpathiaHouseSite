@@ -208,10 +208,10 @@ const userSeed = [
     authExpirationDate: '',
   },
   {
-    mundaneFirstName: "idk",
-    mundaneLastName: "idk",
+    mundaneFirstName: "John",
+    mundaneLastName: "Simpson",
     scaFirstName: "Fenwick",
-    scaLastName: "idk",
+    scaLastName: "",
     registeredName: false,
     registeredArms: false,
     singlesFighter: true,

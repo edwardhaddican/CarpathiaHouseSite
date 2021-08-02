@@ -8,6 +8,8 @@ const AllMembers = () => {
   const [dreadLadyData, setDreadLadyData] = useState(null);
   const [officers, setOfficers] = useState([]);
   const [grunts, setGrunts] = useState([]);
+  const [onWatch, setOnWatch] = useState([]);
+  const [prospects, setProspects] = useState([]);
 
   async function findAllMembers() {
     try {
@@ -31,12 +33,23 @@ const AllMembers = () => {
         }
       });
 
-      const gruntsInfo = allMembers.filter((user) => user.rank === "grunt");
+      const gruntsInfo = allMembers.filter(
+        (user) => user.memberStatus === "member"
+      );
+
+      const thoseOnWatch = allMembers.filter(
+        (user) => user.memberStatus === "onwatch"
+      );
+      const prospectsInfo = allMembers.filter(
+        (user) => user.memberStatus === "prospect"
+      );
 
       setDreadLordData(dreadLordInfo);
       setDreadLadyData(dreadLadyInfo);
       setOfficers(officersInfo);
       setGrunts(gruntsInfo);
+      setOnWatch(thoseOnWatch);
+      setProspects(prospectsInfo);
     } catch (err) {
       throw err;
     }
@@ -92,6 +105,38 @@ const AllMembers = () => {
       <div className="allMembers-inner-container">
         {grunts.length > 0
           ? grunts.map((member) => {
+              return (
+                <Link
+                  key={`${member.scaLastName}: ${member.scaFirstName}`}
+                  className="link-to-single-member"
+                  to={`/members/${member._id}`}
+                >
+                  <SingleMemberAbb member={member} />
+                </Link>
+              );
+            })
+          : null}
+      </div>
+      <h1>On Watch:</h1>
+      <div className="allMembers-inner-container">
+        {onWatch.length > 0
+          ? onWatch.map((member) => {
+              return (
+                <Link
+                  key={`${member.scaLastName}: ${member.scaFirstName}`}
+                  className="link-to-single-member"
+                  to={`/members/${member._id}`}
+                >
+                  <SingleMemberAbb member={member} />
+                </Link>
+              );
+            })
+          : null}
+      </div>
+      <h1>Prospects:</h1>
+      <div className="allMembers-inner-container">
+        {prospects.length > 0
+          ? prospects.map((member) => {
               return (
                 <Link
                   key={`${member.scaLastName}: ${member.scaFirstName}`}
