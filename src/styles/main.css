@@ -26,6 +26,10 @@ body {
   /* justify-content: space-between; */
 }
 
+.nav-right-link-container{
+  align-self: flex-end;
+}
+
 .nav_item {
   color: white;
   text-decoration: none;

@@ -29,12 +29,16 @@ const NavBar = ({ isAdmin, isSignedIn }) => {
           <Link to={"/home"} className="nav_item">
             Home
           </Link>
+          <Link to={"/calendar"} className="nav_item">
+            Calendar
+          </Link>
+          <div className="nav-right-link-container">
           <Link to={"/login"} className="nav_item">
             Login
           </Link>
-          <Link to={"/register"} className="nav_item">
-            Register
-          </Link>
+          </div>
+
+
         </div>
       )}
     </div>

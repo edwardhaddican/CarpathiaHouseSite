@@ -13,7 +13,7 @@ import SingleMember from "./SingleMember";
 
 const Main = () => {
   const [isAdmin, setIsAdmin] = useState(true); //change later to false
-  const [isSignedIn, setIsSignedIn] = useState(true); //change later to false
+  const [isSignedIn, setIsSignedIn] = useState(false); //change later to false
 
   return (
     <div className="main_container">
