@@ -8,7 +8,8 @@
     "start": "NODE_ENV='production' npm run build & NODE_ENV='production' npm run start-server",
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore src",
     "build": "react-scripts build && mv build ./server/public",
-    "seed": "node scripts/seed.js"
+    "seed": "node scripts/seed.js",
+    "seed-prod": "NODE_ENV='production' node scripts/seed.js"
   },
   "keywords": [],
   "author": "",

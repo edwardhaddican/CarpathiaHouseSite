@@ -1,3 +1,4 @@
+require('dotenv').config();
 require("../server/db");
 const { Member } = require("../server/db/models");
 const userSeed = require("./userSeedData");
