@@ -1,5 +1,5 @@
 const defaultArms =
-  "https://pic.ebid.net/upload_medbig/5/6/4/uo_1596811661-32027-154.jpg";
+  "/deviceImages/DefaultHouseArms.jpg";
 
 const defaultImage =
   "https://www.thesprucepets.com/thmb/_yrib2KGkS4VJSgCQEl59KPUPOU=/1885x1414/smart/filters:no_upscale()/GettyImages-135630198-5ba7d225c9e77c0050cff91b.jpg";
@@ -341,7 +341,7 @@ const userSeed = [
     admin: false,
     rank: "Officer",
     image: defaultImage,
-    arms: defaultArms,
+    arms: "/deviceImages/DeclanArms.png",
     notes: "",
     title: "Lord",
   },

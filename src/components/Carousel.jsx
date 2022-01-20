@@ -1,4 +1,7 @@
 import React from 'react'
+import arrayOfGalleryImages from '../seedData/galleryData'
+
+console.log(arrayOfGalleryImages, 'arr')
 
 const Carousel = ()=>{
   return(

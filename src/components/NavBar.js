@@ -13,11 +13,16 @@ const NavBar = ({ isAdmin, isSignedIn }) => {
             Calendar
           </Link>
 
-          {isAdmin ? (
-            <Link to={"/members"} className="nav_item">
-              Members
-            </Link>
-          ) : null}
+          <Link to={"/members"} className="nav_item">
+            Members
+          </Link>
+          <Link to={"/gallery"} className="nav_item">
+            Gallery
+          </Link>
+          <Link to={"/carousel"} className="nav_item">
+            Carousel
+          </Link>
+
           {isAdmin ? (
             <Link to={"/newmemberform"} className="nav_item">
               New Member Form
@@ -32,13 +37,21 @@ const NavBar = ({ isAdmin, isSignedIn }) => {
           <Link to={"/calendar"} className="nav_item">
             Calendar
           </Link>
-          <div className="nav-right-link-container">
-          <Link to={"/login"} className="nav_item">
-            Login
+          <Link to={"/members"} className="nav_item">
+            Members
           </Link>
+          <Link to={"/gallery"} className="nav_item">
+            Gallery
+          </Link>
+          <Link to={"/carousel"} className="nav_item">
+            Carousel
+          </Link>
+
+          <div className="nav-right-link-container">
+            {/* <Link to={"/login"} className="nav_item">
+            Login
+          </Link> */}
           </div>
-
-
         </div>
       )}
     </div>

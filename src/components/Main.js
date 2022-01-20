@@ -10,9 +10,11 @@ import {
 } from "./index";
 import { Switch, Route, Redirect } from "react-router-dom";
 import SingleMember from "./SingleMember";
+import Carousel from "./Carousel";
+import Gallery from "./Gallery";
 
 const Main = () => {
-  const [isAdmin, setIsAdmin] = useState(true); //change later to false
+  const [isAdmin, setIsAdmin] = useState(false); //change later to false
   const [isSignedIn, setIsSignedIn] = useState(true); //change later to false
 
   return (
@@ -55,6 +57,19 @@ const Main = () => {
             return <NewMemberForm />;
           }}
         />
+        <Route
+          path="/gallery"
+          render={() => {
+            return <Gallery />;
+          }}
+        />
+        <Route
+          path="/carousel"
+          render={() => {
+            return <Carousel />;
+          }}
+        />
+
         <Route
           path="/home"
           render={() => {
