@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SingleMember, SingleMemberAbb } from "./";
 import axios from "axios";
+import userSeed from "../seedData/userSeedData"
 
 const AllMembers = () => {
   const [dreadLordData, setDreadLordData] = useState(null);
@@ -13,8 +14,9 @@ const AllMembers = () => {
 
   async function findAllMembers() {
     try {
-      const response = await axios.get("/api/members");
-      const allMembers = response.data;
+      // const response = await axios.get("/api/members");
+      // const allMembers = response.data;
+      const allMembers = userSeed
 
       const dreadLordInfo = allMembers.filter(
         (user) => user.rank === "Dread Lord"
