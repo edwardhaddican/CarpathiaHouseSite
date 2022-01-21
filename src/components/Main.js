@@ -7,11 +7,11 @@ import {
   Calendar,
   Home,
   NewMemberForm,
+  Gallery,
+  CarouselComponent,
 } from "./index";
 import { Switch, Route, Redirect } from "react-router-dom";
 import SingleMember from "./SingleMember";
-import Carousel from "./Carousel";
-import Gallery from "./Gallery";
 
 const Main = () => {
   const [isAdmin, setIsAdmin] = useState(false); //change later to false
@@ -41,10 +41,7 @@ const Main = () => {
           }}
         />
 
-        <Route
-          path="/members/:memberId"
-         component={SingleMember}
-        />
+        <Route path="/members/:memberId" component={SingleMember} />
         <Route
           path="/members"
           render={() => {
@@ -66,7 +63,7 @@ const Main = () => {
         <Route
           path="/carousel"
           render={() => {
-            return <Carousel />;
+            return <CarouselComponent />;
           }}
         />
 

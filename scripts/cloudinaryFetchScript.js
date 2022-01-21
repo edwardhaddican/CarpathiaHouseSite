@@ -2,39 +2,31 @@ require("dotenv").config();
 
 const cloudinary = require("cloudinary").v2;
 
-const result = [];
+function listResources() {
+  cloudinary.search
+    .expression("folder:Carpathia/*")
+    .sort_by("public_id", "desc")
+    .execute()
+    .then((e) => {
+      return e.resources.map((element) => {
+        return element.url;
+      });
+    })
+    .then((arr) => {
+      return arr.map((e) => {
+        const index = 49;
+        const splitArr = e.split("");
+        splitArr.splice(49, 0, "q_50/");
 
-const options = {
-  resource_type: "image",
-  folder: "Carpathia",
-  max_results: 500,
-};
-
-function listResources(next_cursor) {
-  if (next_cursor) {
-    options["next_cursor"] = next_cursor;
-  }
-  console.log(options, "options");
-  cloudinary.api.resources(options, function (error, res) {
-    if (error) {
-      console.log(error, "my error");
-    }
-    const more = res.next_cursor;
-
-    resources = res.resources;
-
-    for (let res in resources) {
-      res = resources[res];
-      let url = res.secure_url;
-      result.push(url);
-    }
-
-    if (more) {
-      listResources(more);
-    } else {
-      console.log("done");
-      console.log(result, "result arr");
-    }
-  });
+        return splitArr.join("");
+      });
+    })
+    .then((arr) => {
+      console.log(arr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
-listResources(null);
+listResources();
+

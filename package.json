@@ -27,13 +27,14 @@
     "nodemon": "^2.0.6",
     "pg": "^8.5.1",
     "react": "^16.14.0",
+    "react-bootstrap": "^2.1.1",
     "react-dom": "^16.14.0",
+    "react-responsive-carousel": "^3.2.22",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "react-select": "^4.3.1",
     "sequelize": "^6.3.5"
   },
-  "devDependencies": {},
   "browserslist": {
     "production": [
       ">0.2%",

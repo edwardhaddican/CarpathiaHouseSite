@@ -10,6 +10,11 @@ export {default as Home} from './Home'
 export {default as NewMemberForm} from './NewMemberForm'
 export {default as FileInput} from './FileInput'
 export {default as SingleMemberAbb} from './SingleMemberAbb'
+export {default as CarouselComponent} from './CarouselComponent'
+export {default as Gallery} from './Gallery'
+
+
+
 
 
 

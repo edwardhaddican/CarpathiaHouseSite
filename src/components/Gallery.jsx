@@ -6,8 +6,7 @@ console.log(arrayOfGalleryImages, "arr");
 
 const Gallery = () => {
   return (
-    <div>
-      <h1>Gallery</h1>
+    <div className="gallery-main-container">
       {arrayOfGalleryImages.map((e) => {
         return (
           <Link>
