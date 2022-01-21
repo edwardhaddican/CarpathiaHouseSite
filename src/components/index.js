@@ -12,6 +12,7 @@ export {default as FileInput} from './FileInput'
 export {default as SingleMemberAbb} from './SingleMemberAbb'
 export {default as CarouselComponent} from './CarouselComponent'
 export {default as Gallery} from './Gallery'
+export {default as Modal} from './Modal'
 
 
 

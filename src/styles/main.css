@@ -44,12 +44,22 @@ body {
   margin-left: 1rem;
 }
 
+/* Calendar*/
+
+.calendar {
+  border: 0;
+  width: 800px;
+  height: 600px;
+  display: block;
+  margin: 0 auto;
+}
+
 /* Carousel*/
 .carousel-main-container {
   height: 700px;
 }
 
-.carousel{
+.carousel {
   height: 100%;
 }
 
@@ -231,12 +241,42 @@ body {
   padding: 0.5rem;
 }
 
-/* Calendar*/
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: fade-out(white, 0.04);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2147483638;
+}
 
-.calendar {
-  border: 0;
-  width: 800px;
-  height: 600px;
-  display: block;
-  margin: 0 auto;
+.modal .modal-body {
+  background: white;
+  box-shadow: 7px 6px 23px -4px rgba(0, 0, 0, 0.75);
+  padding: 2rem;
+  max-width: 95vw;
+  max-height: 95vh;
+}
+
+.modal .modal-header .entity-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  fill: #666;
+}
+
+.modal .modal-header p {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  color: #666;
+}
+
+.modal-image{
+  /* width: 600px; */
+  max-height: 600px;
 }

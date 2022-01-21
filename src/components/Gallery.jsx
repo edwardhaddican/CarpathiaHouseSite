@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Modal } from "./";
 import arrayOfGalleryImages from "../seedData/galleryData";
 
 console.log(arrayOfGalleryImages, "arr");
 
 const Gallery = () => {
+  const [showPreviewModal, setShowPreviewModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
+
   return (
     <div className="gallery-main-container">
-      {arrayOfGalleryImages.map((e) => {
+      {showPreviewModal && (
+        <Modal
+          onModalClose={() => setShowPreviewModal(false)}
+          clickOutsideClose={true}
+        >
+          <div>
+            <img className="modal-image" src={selectedImage} />
+          </div>
+        </Modal>
+      )}
+
+      {arrayOfGalleryImages.map((imageUrl) => {
         return (
-          <Link>
-            <img src={e} className="gallery-image" />;
-          </Link>
+          <img
+            key={imageUrl}
+            src={imageUrl}
+            className="gallery-image"
+            onClick={() => {
+              setShowPreviewModal(true);
+              setSelectedImage(imageUrl);
+            }}
+            style={{ cursor: "pointer" }}
+          />
         );
       })}
     </div>
