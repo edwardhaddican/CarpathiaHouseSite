@@ -6,7 +6,6 @@ const arrayOfGalleryImages = [
   "http://res.cloudinary.com/dwjilsieu/image/upload/q_50/v1642709800/Carpathia/lawrence-klaus-fi-gui_utpau1.jpg",
   "http://res.cloudinary.com/dwjilsieu/image/upload/q_50/v1642709800/Carpathia/klaus-fi-pennsic_g6j00o.jpg",
   "http://res.cloudinary.com/dwjilsieu/image/upload/q_50/v1642709833/Carpathia/giblert-crossbow_qwkdwc.jpg",
-  "http://res.cloudinary.com/dwjilsieu/image/upload/q_50/v1642709797/Carpathia/cool-kit-who-is-this_o2cxfj.jpg",
   "http://res.cloudinary.com/dwjilsieu/image/upload/q_50/v1642709806/Carpathia/Southern-Region-War-camp-2019_fxjczw.jpg",
   "http://res.cloudinary.com/dwjilsieu/image/upload/q_50/v1642709822/Carpathia/Serious-Klaus-pre-vigil_nwt1ec.jpg",
   "http://res.cloudinary.com/dwjilsieu/image/upload/q_50/v1642709838/Carpathia/Rhynn-in-armor-pennsic-2019_sfre5m.jpg",
