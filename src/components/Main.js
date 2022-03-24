@@ -18,8 +18,8 @@ const Main = () => {
   const [isSignedIn, setIsSignedIn] = useState(true); //change later to false
 
   return (
-    <div className="main_container">
-      <h1 className="main_title">Welcome to Carpathia</h1>
+    <div className="main-container">
+      <h1 className="main-title">Welcome to Carpathia</h1>
       <NavBar isAdmin={isAdmin} isSignedIn={isSignedIn} />
       <Switch>
         <Route

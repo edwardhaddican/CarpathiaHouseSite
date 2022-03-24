@@ -1,3 +1,5 @@
+//this is the correct seed file, check and delete the other one
+
 const defaultArms = "/deviceImages/DefaultHouseArms.jpg";
 
 const defaultImage =
@@ -21,8 +23,10 @@ const userSeed = [
     rank: "Dread Lord",
     image: defaultImage,
     arms: "/deviceImages/KlausArms.jpg",
+    armsAlt: "default arms",
     notes: "",
     title: "Sir",
+    _id: 1,
   },
   {
     mundaneFirstName: "Felicia",
@@ -41,8 +45,10 @@ const userSeed = [
     rank: "Dread Lady",
     image: defaultImage,
     arms: "/deviceImages/StasiaArms.jpg",
+    armsAlt: "default arms",
     notes: "",
     title: "Lady",
+    _id: 2,
   },
   {
     mundaneFirstName: "Tyler",
@@ -61,8 +67,10 @@ const userSeed = [
     rank: "Sergeant",
     image: defaultImage,
     arms: "/deviceImages/GuisArms.jpg",
+    armsAlt: "default arms",
     notes: "",
     title: "Lord",
+    _id: 3,
   },
   {
     mundaneFirstName: "Travis",
@@ -81,8 +89,11 @@ const userSeed = [
     rank: "quartermaster",
     image: defaultImage,
     arms: "/deviceImages/LawrenceArms.jpg",
+    armsAlt:
+      "Argent, an owl rising wings adorsed sable, a bordure embattled counter-ermine",
     notes: "",
     title: "First Sworn/Lord",
+    _id: 4,
   },
   {
     mundaneFirstName: "Victoria",
@@ -101,8 +112,10 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: "/deviceImages/VicsArms.jpg",
+    armsAlt: "default arms",
     notes: "",
     title: "",
+    _id: 5,
   },
   {
     mundaneFirstName: "Karen",
@@ -121,14 +134,16 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: "/deviceImages/RhynnArms.png",
+    armsAlt: "default arms",
     notes: "",
     title: "",
+    _id: 6,
   },
   {
     mundaneFirstName: "Brian",
     mundaneLastName: "Payseur",
     scaFirstName: "Gilbert",
-    scaLastName: "idk",
+    scaLastName: "le Merchand",
     registeredName: false,
     registeredArms: false,
     singlesFighter: true,
@@ -140,9 +155,11 @@ const userSeed = [
     admin: false,
     rank: "grunt",
     image: defaultImage,
-    arms: defaultArms,
+    arms: "/deviceImages/GilbertArms.png",
+    armsAlt: "Per bend sinister sable and argent, a chalice counterchanged.",
     notes: "",
     title: "",
+    _id: 7,
   },
   {
     mundaneFirstName: "Erica",
@@ -161,8 +178,10 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: defaultArms,
+    armsAlt: "default arms",
     notes: "",
     title: "",
+    _id: 8,
   },
   {
     mundaneFirstName: "John",
@@ -181,8 +200,10 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: defaultArms,
+    armsAlt: "default arms",
     notes: "",
     title: "",
+    _id: 9,
   },
   {
     mundaneFirstName: "Micheal",
@@ -201,8 +222,10 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: defaultArms,
+    armsAlt: "default arms",
     notes: "",
     title: "Lord",
+    _id: 10,
   },
   {
     mundaneFirstName: "Kordian",
@@ -221,8 +244,10 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: defaultArms,
+    armsAlt: "default arms",
     notes: "",
     title: "",
+    _id: 11,
   },
   {
     mundaneFirstName: "Corey",
@@ -241,8 +266,10 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: defaultArms,
+    armsAlt: "default arms",
     notes: "",
     title: "Lord",
+    _id: 12,
   },
   {
     mundaneFirstName: "Cory",
@@ -261,8 +288,11 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: "/deviceImages/CoryArms.JPEG",
+    armsAlt:
+      "Per fess argent and sable, two trees blasted their trunks issuant from the line of division counterchanged and in sinister canton a sun sable.",
     notes: "",
     title: "",
+    _id: 13,
   },
   {
     mundaneFirstName: "Brandon",
@@ -281,8 +311,11 @@ const userSeed = [
     rank: "seneschal",
     image: defaultImage,
     arms: "/deviceImages/JasperArms.jpg",
+    armsAlt:
+      "Per fess sable and argent, two trees blasted their trunks issuant from the line of division between three mullets of eight points counterchanged",
     notes: "",
     title: "",
+    _id: 14,
   },
   {
     mundaneFirstName: "Sam",
@@ -301,8 +334,10 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: defaultArms,
+    armsAlt: "default arms",
     notes: "",
     title: "",
+    _id: 15,
   },
   {
     mundaneFirstName: "Joe",
@@ -321,8 +356,10 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: defaultArms,
+    armsAlt: "default arms",
     notes: "",
     title: "",
+    _id: 16,
   },
   {
     mundaneFirstName: "Ed",
@@ -341,8 +378,10 @@ const userSeed = [
     rank: "Officer",
     image: defaultImage,
     arms: "/deviceImages/DeclanArms.png",
+    armsAlt: "default arms",
     notes: "",
     title: "Lord",
+    _id: 17,
   },
   {
     mundaneFirstName: "Hunter",
@@ -361,8 +400,10 @@ const userSeed = [
     rank: "grunt",
     image: defaultImage,
     arms: defaultArms,
+    armsAlt: "default arms",
     notes: "",
     title: "",
+    _id: 18,
   },
 ];
 
