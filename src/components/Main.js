@@ -9,6 +9,7 @@ import {
   NewMemberForm,
   Gallery,
   CarouselComponent,
+  Footer,
 } from "./index";
 import { Switch, Route, Redirect } from "react-router-dom";
 import SingleMember from "./SingleMember";
@@ -75,6 +76,7 @@ const Main = () => {
         />
         <Redirect to="/home" />
       </Switch>
+      <Footer />
     </div>
   );
 };
