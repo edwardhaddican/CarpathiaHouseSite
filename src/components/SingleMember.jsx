@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { NewMemberForm } from "./index";
+import userSeed from "../seedData/userSeedData";
 
 const SingleMember = ({ member, match }) => {
   const [singleMemberData, setSingleMemberData] = useState(null);
-  const [currentId, setCurrentId] = useState(null);
   const [isEdit, setIsEdit] = useState(false);
 
   async function findSingleMember() {
     try {
       const id = match.params.memberId;
-      setCurrentId(match.params.memberId);
 
-      const response = await axios.get(`/api/members/${id}`);
-      const data = response.data;
-      setSingleMemberData(data);
+      const singleMember = userSeed.filter((e) => e._id == id);
+
+      setSingleMemberData(singleMember[0]);
     } catch (err) {
       throw err;
     }
@@ -24,23 +23,19 @@ const SingleMember = ({ member, match }) => {
     findSingleMember();
   }, []);
 
-  function editClickHandler() {
-    console.log("i am edit");
-    setIsEdit(true)
+  if (!singleMemberData) {
+    return <h1>loading</h1>;
   }
 
-  function saveClickHandler() {
-    console.log("i am save");
-    setIsEdit(false)
-  }
-
-  if(!singleMemberData){
-    return <h1>loading</h1>
-  }
-console.log(singleMemberData, 'data')
   return (
     <>
-      {isEdit ? <NewMemberForm  singleMemberData={singleMemberData}   isEdit={isEdit} setIsEdit={setIsEdit}/> : (
+      {isEdit ? (
+        <NewMemberForm
+          singleMemberData={singleMemberData}
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+        />
+      ) : (
         <div className="single-member-card">
           {singleMemberData ? (
             <img
@@ -183,7 +178,9 @@ console.log(singleMemberData, 'data')
             />
           ) : null}
 
-          <button onClick={editClickHandler}>Edit</button>
+          {singleMemberData && singleMemberData.armsAlt.length > 12
+            ? singleMemberData.armsAlt
+            : null}
         </div>
       )}
     </>
