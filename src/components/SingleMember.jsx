@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { NewMemberForm } from "./index";
 import userSeed from "../seedData/userSeedData";
 

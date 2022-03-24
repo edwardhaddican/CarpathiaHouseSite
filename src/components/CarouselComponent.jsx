@@ -16,7 +16,7 @@ const CarouselComponent = () => {
       {arrayOfGalleryImages.map((e) => {
         return (
           <div key={e}>
-            <img src={e} />
+            <img src={e} alt=""/>
           </div>
         );
       })}
