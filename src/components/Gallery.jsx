@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { Modal } from "./";
 import arrayOfGalleryImages from "../seedData/galleryData";
 
-console.log(arrayOfGalleryImages, "arr");
-
 const Gallery = () => {
   const [showPreviewModal, setShowPreviewModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");

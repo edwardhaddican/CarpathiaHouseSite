@@ -1,6 +1,6 @@
 body {
   /* background-color: #B9D6F2; */
-  background-color: #d1e4f6;
+  /* background-color: #d1e4f6; */
 }
 
 /* Main*/
@@ -55,6 +55,9 @@ body {
 }
 
 /* Calendar*/
+.calendar-main-container{
+ /* background-color: black; */
+}
 
 .calendar {
   border: 0;
@@ -62,6 +65,7 @@ body {
   height: 600px;
   display: block;
   margin: 0 auto;
+  /* padding: 2rem; */
 }
 
 /* Carousel*/

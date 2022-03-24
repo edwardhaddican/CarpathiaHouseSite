@@ -4,8 +4,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import arrayOfGalleryImages from "../seedData/galleryData";
 
-console.log(arrayOfGalleryImages, "arr");
-
 const CarouselComponent = () => {
   return (
     <Carousel
