@@ -1,10 +1,20 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <p className="footer-main-container">
-      We can be reached at: carpathia.holdfast@gmail.com
-    </p>
+    <div className="footer-main-container">
+      <p >
+        We can be reached at: carpathia.holdfast@gmail.com
+      </p>
+
+      <Link className="footer-link"
+        to={{ pathname: "https://wiki.eastkingdom.org/wiki/House_Carpathia" }}
+        target="_blank"
+      >
+        Our Wiki
+      </Link>
+    </div>
   );
 };
 
