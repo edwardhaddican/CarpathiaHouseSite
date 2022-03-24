@@ -14,7 +14,7 @@ const Gallery = () => {
           clickOutsideClose={true}
         >
           <div>
-            <img className="modal-image" src={selectedImage} />
+            <img className="modal-image" src={selectedImage} alt=""/>
           </div>
         </Modal>
       )}
@@ -25,6 +25,7 @@ const Gallery = () => {
             key={imageUrl}
             src={imageUrl}
             className="gallery-image"
+            alt=""
             onClick={() => {
               setShowPreviewModal(true);
               setSelectedImage(imageUrl);

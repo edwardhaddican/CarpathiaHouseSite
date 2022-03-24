@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   NavBar,
   AllMembers,
@@ -15,13 +15,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import SingleMember from "./SingleMember";
 
 const Main = () => {
-  const [isAdmin, setIsAdmin] = useState(false); //change later to false
-  const [isSignedIn, setIsSignedIn] = useState(true); //change later to false
-
   return (
     <div className="main-container">
       <h1 className="main-title">Welcome to Carpathia</h1>
-      <NavBar isAdmin={isAdmin} isSignedIn={isSignedIn} />
+      <NavBar  />
       <Switch>
         <Route
           path="/register"
