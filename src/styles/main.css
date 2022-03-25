@@ -203,7 +203,8 @@ body {
 
 .new-member-form-image-container {
   display: flex;
-  margin-bottom: 1rem;
+  padding: 0 auto;
+  justify-content: center;
 }
 .label-container {
   margin-bottom: 0.5rem;
