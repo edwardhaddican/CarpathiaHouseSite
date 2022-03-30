@@ -231,7 +231,7 @@ const userSeed = [
     mundaneFirstName: "K",
     mundaneLastName: "S",
     scaFirstName: "Thaddeus",
-    scaLastName: "xxxx",
+    scaLastName: "Obcyczyk",
     registeredName: false,
     registeredArms: false,
     singlesFighter: true,
