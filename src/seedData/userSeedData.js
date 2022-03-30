@@ -228,8 +228,8 @@ const userSeed = [
     _id: 10,
   },
   {
-    mundaneFirstName: "Kordian",
-    mundaneLastName: "Starczyk",
+    mundaneFirstName: "K",
+    mundaneLastName: "S",
     scaFirstName: "Thaddeus",
     scaLastName: "xxxx",
     registeredName: false,
