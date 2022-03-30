@@ -362,8 +362,8 @@ const userSeed = [
     _id: 16,
   },
   {
-    mundaneFirstName: "Ed",
-    mundaneLastName: "Had",
+    mundaneFirstName: "E",
+    mundaneLastName: "H",
     scaFirstName: "Declán",
     scaLastName: "mac Aodhagáin",
     registeredName: false,
