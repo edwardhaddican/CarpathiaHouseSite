@@ -245,7 +245,7 @@ const userSeed = [
       "spear",
       "great-weapon",
     ],
-    gearStatus: false,
+    gearStatus: true,
     memberStatus: "onwatch",
     admin: false,
     rank: "Companion",
