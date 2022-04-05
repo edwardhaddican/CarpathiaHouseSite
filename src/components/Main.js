@@ -2,36 +2,21 @@ import React from "react";
 import {
   NavBar,
   AllMembers,
-  Login,
-  Register,
   Calendar,
   Home,
-  NewMemberForm,
   Gallery,
   CarouselComponent,
   Footer,
+  SingleMember,
 } from "./index";
 import { Switch, Route, Redirect } from "react-router-dom";
-import SingleMember from "./SingleMember";
 
 const Main = () => {
   return (
     <div className="main-container">
       <h1 className="main-title">Welcome to Carpathia</h1>
-      <NavBar  />
+      <NavBar />
       <Switch>
-        <Route
-          path="/register"
-          render={() => {
-            return <Register />;
-          }}
-        />
-        <Route
-          path="/login"
-          render={() => {
-            return <Login />;
-          }}
-        />
         <Route
           path="/calendar"
           render={() => {
@@ -46,12 +31,7 @@ const Main = () => {
             return <AllMembers />;
           }}
         />
-        <Route
-          path="/newmemberform"
-          render={() => {
-            return <NewMemberForm />;
-          }}
-        />
+
         <Route
           path="/gallery"
           render={() => {
