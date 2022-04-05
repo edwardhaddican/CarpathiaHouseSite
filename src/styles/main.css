@@ -37,6 +37,10 @@ body {
   padding-left: 2rem;
 }
 
+.nav-bar-image-background{
+  background-color: white;
+  padding: .1rem;
+}
 .nav-bar-house-arms {
   width: 50px;
   height: 50px;

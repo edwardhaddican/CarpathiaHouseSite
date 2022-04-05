@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 const NavBar = ({ isAdmin, isSignedIn }) => {
   return (
     <div className="nav-bar-container">
-      <img className="nav-bar-house-arms" src="/deviceImages/DefaultHouseArms.jpg" alt="House Arms - *** add official description"/>
+      <div className="nav-bar-image-background">
+        <img
+          className="nav-bar-house-arms"
+          src="/deviceImages/CarpathiaHouseArms.png"
+          alt="House Arms - *** add official description"
+        />
+      </div>
       {isSignedIn ? (
         <div className="nav-link-container">
           <Link to={"/home"} className="nav-item">

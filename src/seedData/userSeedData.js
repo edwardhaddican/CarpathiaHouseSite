@@ -1,6 +1,6 @@
 //this is the correct seed file, check and delete the other one
 
-const defaultArms = "/deviceImages/DefaultHouseArms.jpg";
+const defaultArms = "/deviceImages/CarpathiaHouseArms.png";
 
 const defaultImage =
   "https://www.thesprucepets.com/thmb/_yrib2KGkS4VJSgCQEl59KPUPOU=/1885x1414/smart/filters:no_upscale()/GettyImages-135630198-5ba7d225c9e77c0050cff91b.jpg";
@@ -270,7 +270,7 @@ const userSeed = [
     authorizedForms: [],
     gearStatus: false,
     memberStatus: "member",
-    admin: false,
+    admin: true,
     rank: "Bannerman",
     image: defaultImage,
     arms: "/deviceImages/CoryArms.JPEG",
