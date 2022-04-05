@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { NewMemberForm } from "./index";
 import userSeed from "../seedData/userSeedData";
 
 const SingleMember = ({ member, match }) => {
   const [singleMemberData, setSingleMemberData] = useState(null);
-  const [isEdit, setIsEdit] = useState(false);
 
   async function findSingleMember() {
     try {
